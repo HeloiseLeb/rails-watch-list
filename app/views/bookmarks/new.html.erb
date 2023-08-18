@@ -1,0 +1,11 @@
+<h1>Add a movie to your <%= @list.name %> list </h1>
+
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+
+<%= f.association :movie, collection: Movie.where.not(id: @list.movies.pluck(:id)).order(:title), prompt: "Select a movie" %>
+<%= f.input :comment %>
+<%= f.submit  'Save', class: "btn btn-primary"%>
+<% end %>
+
+
+<!--input_html: {data:{controller:"tom-select"}>

@@ -1,0 +1,16 @@
+<h1>Hello from the index view</h1>
+
+<ul class="card mb-4" style="width: 18rem;">
+<% @movies.each do |movie| %>
+
+<li>
+<%= link_to movie.title, movie_path(movie) %>
+<img src="<%= movie.poster_url %>">
+</li>
+
+<% end %>
+
+</ul>
+
+
+<%= link_to "Add a movie", new_movie_path %>
